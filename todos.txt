@@ -4,5 +4,9 @@ play
 shower
 Clean the toilet
 Love Ashley More
-Call ally
+Follow up with ally
 Learn Python
+
+Clean the program
+My Newest todo is added
+Add a final issue
