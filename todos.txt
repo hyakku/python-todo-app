@@ -5,3 +5,4 @@ shower
 Clean the toilet
 Love Ashley More
 Call ally
+Learn Python
