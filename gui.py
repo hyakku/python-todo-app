@@ -34,9 +34,6 @@ window = sg.Window("My To-Do App",
 while True:
     event, values = window.read(timeout=500)
     window["clock"].update(value=time.strftime("%b %d %Y %H:%M:%S"))
-    print(1, event)
-    print(2, values)
-    print(3, values['existing_todos'])
 
     match event:
 
@@ -81,7 +78,11 @@ while True:
             break
 
         case 'existing_todos':
-            window['todo'].update(value=values['existing_todos'][0])
+            try:
+                window['todo'].update(value=values['existing_todos'][0])
+            except IndexError:
+                sg.popup("Please add a task first", font=("Helvetica", 15))
+
 
         case sg.WIN_CLOSED:
             break
