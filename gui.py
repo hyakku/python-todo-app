@@ -1,6 +1,11 @@
 import functions
 import PySimpleGUI as sg
 import time
+import os
+
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
 
 sg.theme("DarkPurple4")
 
@@ -54,6 +59,8 @@ while True:
                 window['existing_todos'].update(values=todos)
             except IndexError:
                 sg.popup("Please select an item first", font=("Helvetica", 15))
+            except ValueError:
+                sg.popup("Please select an item and describe a task to edit.", font=("Helvetica", 15))
 
         case "Complete":
             try:
@@ -65,6 +72,10 @@ while True:
                 window['todo'].update(value="")
             except IndexError:
                 sg.popup("Please select an item first", font=("Helvetica", 15))
+            except ValueError:
+                sg.popup("There was an error attempting "
+                         "to delete the item, please try again",
+                         font=("Helvetica", 15))
 
         case "Exit":
             break
